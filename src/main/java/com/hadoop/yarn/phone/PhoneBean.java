@@ -57,8 +57,6 @@ public class PhoneBean implements Writable {
 
     @Override
     public String toString() {
-        return
-                upFlow +
-                "   " + downFlow +"   " + sumFlow;
+        return upFlow + "   " + downFlow +"   " + sumFlow;
     }
 }
