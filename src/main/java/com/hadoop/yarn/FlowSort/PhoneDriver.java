@@ -1,4 +1,4 @@
-package com.hadoop.yarn.phone;
+package com.hadoop.yarn.FlowSort;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
@@ -22,20 +22,19 @@ public class PhoneDriver {
        CombineTextInputFormat.setMaxInputSplitSize(job,4194304);
 
        //设置reduce task合并文件的数量
-        job.setPartitionerClass(ProvincePartition.class);
-        job.setNumReduceTasks(3);
+       job.setPartitionerClass(Partition2.class);
+       job.setNumReduceTasks(3);
+        job.setMapperClass(SortPhoneMap.class);
+        job.setReducerClass(SortPhoneReduce.class);
 
-        job.setMapperClass(PhoneMap.class);
-        job.setReducerClass(PhoneReduce.class);
-
-        job.setMapOutputKeyClass(Text.class);
-        job.setOutputValueClass(PhoneBean.class);
+        job.setMapOutputKeyClass(PhoneBean.class);
+        job.setMapOutputValueClass(Text.class);
 
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(PhoneBean.class);
 
-        FileInputFormat.setInputPaths(job,new Path("e:/phone/"));
-        FileOutputFormat.setOutputPath(job,new Path("e:/phone07/"));
+        FileInputFormat.setInputPaths(job,new Path("E:\\phone07"));
+        FileOutputFormat.setOutputPath(job,new Path("e:/phone56/"));
         job.waitForCompletion(true);
     }
 }
