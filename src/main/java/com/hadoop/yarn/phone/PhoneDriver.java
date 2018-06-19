@@ -20,7 +20,7 @@ public class PhoneDriver {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(PhoneBean.class);
         FileInputFormat.setInputPaths(job,new Path("e:/phone_info.txt"));
-        FileOutputFormat.setOutputPath(job,new Path("e:/phone08/info.txt"));
-        job.waitForCompletion(true);
+        FileOutputFormat.setOutputPath(job,new Path("e:/phone14/info.txt"));
+         job.waitForCompletion(true);
     }
 }
