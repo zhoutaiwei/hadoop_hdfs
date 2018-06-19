@@ -18,14 +18,12 @@ public class PhoneMap extends Mapper<LongWritable, Text, Text, PhoneBean> {
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
         String line = value.toString();
         String[] split = line.split(" ");
-        for (int i = 0; i < split.length; i++) {
             String phnoeNumber = split[1];
             String upFlow = split[3];
             String downFlow = split[4];
             pb = new PhoneBean(Long.valueOf(upFlow), Long.valueOf(downFlow));
             k.set(phnoeNumber);
 
-        }
         context.write(k, pb);
     }
 }

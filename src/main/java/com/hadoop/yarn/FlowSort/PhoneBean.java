@@ -1,12 +1,13 @@
-package com.hadoop.yarn.phone;
+package com.hadoop.yarn.FlowSort;
 
 import org.apache.hadoop.io.Writable;
+import org.apache.hadoop.io.WritableComparable;
 
 import java.io.DataInput;
 import java.io.DataOutput;
 import java.io.IOException;
 
-public class PhoneBean implements Writable {
+public class PhoneBean implements WritableComparable<PhoneBean> {
     Long sumFlow;
     Long upFlow;
     Long downFlow;
@@ -59,4 +60,16 @@ public class PhoneBean implements Writable {
     public String toString() {
         return upFlow + "\t" + downFlow +"\t" + sumFlow;
     }
+
+    public int compareTo(PhoneBean o) {
+        long i1 = this.sumFlow - o.sumFlow;
+        if(i1>0){
+            return -1;
+        }else if(i1<0){
+            return  1;
+        }else{
+            return (int) (this.upFlow-o.upFlow);
+        }
+    }
+
 }

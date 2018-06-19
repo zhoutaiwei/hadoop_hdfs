@@ -13,7 +13,6 @@ public class PhoneReduce extends Reducer<Text,PhoneBean,Text,PhoneBean>{
         Long upFlowSum=0L;
         Long downFlowSum=0L;
         for (PhoneBean pb:values) {
-            System.out.println(pb);
             upFlowSum+=pb.upFlow;
             downFlowSum+=pb.downFlow;
         }
