@@ -12,7 +12,7 @@ public class SequenceFileReduce extends Reducer<Text,BytesWritable,Text,BytesWri
     @Override
     protected void reduce(Text key, Iterable<BytesWritable> values, Context context) throws IOException, InterruptedException {
         Iterator<BytesWritable> iterator = values.iterator();
-
+        context.getCounter("","").increment(1);
         context.write(key,iterator.next());
     }
 

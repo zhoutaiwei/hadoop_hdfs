@@ -33,7 +33,7 @@ public class WholeRecordReader extends RecordReader<NullWritable, BytesWritable>
             processed = true;//标识文件正在被使用
             //定义缓存区
             byte[] bytes = new byte[(int) split.getLength()];
-
+            System.out.println("-----------------"+split.getLength());
             FileSystem fs=null;
             FSDataInputStream fis=null;
             try {
@@ -46,6 +46,7 @@ public class WholeRecordReader extends RecordReader<NullWritable, BytesWritable>
                 IOUtils.readFully(fis, bytes, 0, bytes.length);
                 //输出文件内容
                 value.set(bytes, 0, bytes.length);
+
                 return true;
             } catch (IOException e) {
                 e.printStackTrace();

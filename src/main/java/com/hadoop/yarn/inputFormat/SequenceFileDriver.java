@@ -31,7 +31,7 @@ public class SequenceFileDriver {
         job.setOutputValueClass(BytesWritable.class);
 
         FileInputFormat.setInputPaths(job,new Path("E:\\hadoopfile\\inputformat"));
-        FileOutputFormat.setOutputPath(job,new Path("E:\\hadoopfileout\\intput\\04"));
+        FileOutputFormat.setOutputPath(job,new Path("E:\\hadoopfileout\\intput\\14"));
         job.waitForCompletion(true);
 
 
