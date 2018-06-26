@@ -14,6 +14,7 @@ public class SequenceFileMapper extends Mapper<NullWritable, BytesWritable, Text
     protected void setup(Context context) throws IOException, InterruptedException {
         //获取文件切片信息
         FileSplit inputSplit = (FileSplit) context.getInputSplit();
+
         //获取切片名称
         String name = inputSplit.getPath().getName();
         //设置text输出
